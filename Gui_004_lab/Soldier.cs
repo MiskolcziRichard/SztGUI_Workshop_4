@@ -12,5 +12,13 @@ namespace Gui_004_lab
         public int Power { get; set; }
         public int Vitality { get; set; }
         public int Value { get; set; }
+
+        public int Cost
+        {
+            get
+            {
+                return Vitality * Power * Value;
+            }
+        }
     }
 }
