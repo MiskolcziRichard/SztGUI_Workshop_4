@@ -1,0 +1,52 @@
+﻿<Window x:Class="Gui_004_lab.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gui_004_lab"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lbox_left" Grid.Column="0" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="0">
+                        <StackPanel>
+                            <Label Content="{Binding Type}" MouseLeftButtonDown="Label_MouseLeftButtonDown"></Label>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <ProgressBar x:Name="pg_power" Height="10" Width="90"  Grid.Column="0" Minimum="0" Maximum="100" Margin="5" Value="{Binding Power}"></ProgressBar>
+                                <ProgressBar x:Name="pg_vitality" Height="10" Width="90" Grid.Column="1" Minimum="0" Maximum="100" Margin="5" Value="{Binding Vitality}"></ProgressBar>
+                                <ProgressBar x:Name="pg_value" Height="10" Width="90" Grid.Column="2" Minimum="0" Maximum="100" Margin="5" Value="{Binding Value}"></ProgressBar>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+        <Label Content="Money: 690$" Grid.Column="1" Margin="10" ></Label>
+            <Button x:Name="btn_addarmy" Content="Add To Army" Margin="10" Padding="10"></Button>
+            <Button x:Name="btn_remarmy" Content="Remove From Army" Margin="10" Padding="10"></Button>
+            <Button x:Name="btn_editarmy" Content="Edit trooper" Margin="10" Padding="10" ></Button>
+        </StackPanel>
+
+        <ListBox Grid.Column="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+    </Grid>
+</Window>
