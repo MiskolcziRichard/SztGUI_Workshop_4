@@ -18,10 +18,27 @@ namespace Gui_004_lab
     /// </summary>
     public partial class MainWindow : Window
     {
-    ObservableCollection<Soldier> soldiers;
+        ObservableCollection<Soldier> army;
+        ObservableCollection<Soldier> soldiers;
+
+        private int privMoney = 0;
+        public int Money
+        {
+            get
+            {
+                return privMoney;
+            }
+            set
+            {
+                privMoney = value;
+                money.Content = "Money: " + this.Money.ToString();
+            }
+        }
         public MainWindow()
         {
             InitializeComponent();
+            this.Money = 0;
+            army = new ObservableCollection<Soldier>();
             soldiers = new ObservableCollection<Soldier>()
             {
                 new Soldier(){Type="Mariner", Power=30,Value=25,Vitality=25},
@@ -31,6 +48,7 @@ namespace Gui_004_lab
                 new Soldier(){Type="Engineer", Power=20,Value=15,Vitality=20},
             };
             lbox_left.ItemsSource= soldiers;
+            listBoxRight.ItemsSource= army;
             
         }
 
@@ -39,6 +57,22 @@ namespace Gui_004_lab
             string selected = (string)(sender as Label).Content;
             var obj= soldiers.Select(t => t.Type == selected);
             ;
+        }
+
+        private void btn_addarmy_Click(object sender, RoutedEventArgs e)
+        {
+            Soldier s = (Soldier)lbox_left.SelectedItem;
+            army.Add(s);
+            Money += s.Cost;
+            listBoxRight.SelectedItem = null;
+        }
+
+        private void btn_remarmy_Click(object sender, RoutedEventArgs e)
+        {
+            Soldier s = (Soldier)lbox_left.SelectedItem;
+            army.Remove(s);
+            Money -= s.Cost;
+            listBoxRight.SelectedItem = null;
         }
     }
 }

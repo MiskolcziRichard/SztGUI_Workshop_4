@@ -33,17 +33,18 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        
         <StackPanel Grid.Column="1">
-        <Label Content="Money: 690$" Grid.Column="1" Margin="10" ></Label>
-            <Button x:Name="btn_addarmy" Content="Add To Army" Margin="10" Padding="10"></Button>
-            <Button x:Name="btn_remarmy" Content="Remove From Army" Margin="10" Padding="10"></Button>
+            <Label x:Name="money" Grid.Column="1" Margin="10" ></Label>
+            <Button x:Name="btn_addarmy" Content="Add To Army" Margin="10" Padding="10" Click="btn_addarmy_Click"></Button>
+            <Button x:Name="btn_remarmy" Content="Remove From Army" Margin="10" Padding="10" Click="btn_remarmy_Click"></Button>
             <Button x:Name="btn_editarmy" Content="Edit trooper" Margin="10" Padding="10" ></Button>
         </StackPanel>
 
-        <ListBox Grid.Column="2">
+        <ListBox x:Name="listBoxRight" Grid.Column="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    
+                    <Label Content="{Binding Print}"></Label>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

@@ -20,5 +20,18 @@ namespace Gui_004_lab
                 return Vitality * Power * Value;
             }
         }
+
+        public string Print
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"{this.Type.ToString()} {this.Power} {this.Vitality} {this.Value}";
+        }
     }
 }
