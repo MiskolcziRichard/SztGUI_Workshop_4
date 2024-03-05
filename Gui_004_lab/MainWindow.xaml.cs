@@ -40,5 +40,10 @@ namespace Gui_004_lab
             var obj= soldiers.Select(t => t.Type == selected);
             ;
         }
+
+        private void btn_editarmy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
